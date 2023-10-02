@@ -22,7 +22,7 @@ class AddTaskWidget extends StatelessWidget {
         // margin: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
         padding: EdgeInsets.symmetric(vertical: 41, horizontal: 1),
         decoration: BoxDecoration(
-            color: Colors.amber[100], borderRadius: BorderRadius.circular(12)),
+            color: Colors.grey[300], borderRadius: BorderRadius.circular(12)),
 
         child: Column(
           children: <Widget>[

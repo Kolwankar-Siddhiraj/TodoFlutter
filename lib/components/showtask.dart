@@ -8,22 +8,24 @@ class ShowTaskInfoWidget extends StatefulWidget {
   final updateTask;
 
   const ShowTaskInfoWidget(
-      {super.key, required this.todo, required this.closeTask, required this.updateTask});
+      {super.key,
+      required this.todo,
+      required this.closeTask,
+      required this.updateTask});
 
   @override
   State<ShowTaskInfoWidget> createState() => _ShowTaskInfoWidgetState();
 }
 
 class _ShowTaskInfoWidgetState extends State<ShowTaskInfoWidget> {
-
   bool isEditingActive = false;
 
   @override
   Widget build(BuildContext context) {
-    final todoTitleController = TextEditingController(text: widget.todo["title"]);
-    final todoDescriptionController = TextEditingController(text: widget.todo["description"]);
-
-    
+    final todoTitleController =
+        TextEditingController(text: widget.todo["title"]);
+    final todoDescriptionController =
+        TextEditingController(text: widget.todo["description"]);
 
     return Align(
       alignment: Alignment.topCenter,
@@ -31,7 +33,7 @@ class _ShowTaskInfoWidgetState extends State<ShowTaskInfoWidget> {
         // margin: EdgeInsets.symmetric(vertical: 50, horizontal: 10),
         padding: EdgeInsets.symmetric(vertical: 41, horizontal: 1),
         decoration: BoxDecoration(
-            color: Colors.amber[100], borderRadius: BorderRadius.circular(12)),
+            color: Colors.grey[300], borderRadius: BorderRadius.circular(12)),
 
         child: Column(
           children: <Widget>[
@@ -100,7 +102,8 @@ class _ShowTaskInfoWidgetState extends State<ShowTaskInfoWidget> {
                   children: <Widget>[
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: isEditingActive ? toggleEditing : widget.closeTask,
+                        onPressed:
+                            isEditingActive ? toggleEditing : widget.closeTask,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red[300],
                           minimumSize: Size(61, 61),
@@ -118,12 +121,15 @@ class _ShowTaskInfoWidgetState extends State<ShowTaskInfoWidget> {
                     SizedBox(width: 12),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: isEditingActive ? () => {
-                            isEditingActive = !isEditingActive,
-                            widget.updateTask(widget.todo["id"], todoTitleController.text, todoDescriptionController.text)
-                        }
-                        : toggleEditing,
-                                
+                        onPressed: isEditingActive
+                            ? () => {
+                                  isEditingActive = !isEditingActive,
+                                  widget.updateTask(
+                                      widget.todo["id"],
+                                      todoTitleController.text,
+                                      todoDescriptionController.text)
+                                }
+                            : toggleEditing,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green[300],
                           minimumSize: Size(61, 61),
